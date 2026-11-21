@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block title %}Services | MV Mowers{% endblock %}{% block content %}
+<section class="page-hero"><span class="eyebrow">CAPABILITIES</span><h1>OUR SERVICES</h1><p>Tell us what you need done. We'll talk through the scope and next steps.</p></section>
+<section class="section"><div class="service-grid">{% for s in services %}<article class="service-card service-card-large"><div class="service-icon">0{{ loop.index }}</div><h3>{{ s[0] }}</h3><p>{{ s[1] }}</p><a href="{{ url_for('contact') }}?subject={{ s[0]|urlencode }}">Request information ↗</a></article>{% endfor %}</div></section>
+{% endblock %}
