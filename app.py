@@ -10,7 +10,7 @@ UPLOAD_FOLDER = os.path.join(BASE_DIR, "static", "uploads")
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "webp"}
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="Templates", static_folder="Static")
 app.config.update(
     SECRET_KEY=os.environ.get("SECRET_KEY", "dev-only-change-this-secret"),
     MAX_CONTENT_LENGTH=8 * 1024 * 1024,
