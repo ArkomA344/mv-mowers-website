@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block title %}My account | MV Mowers{% endblock %}{% block content %}
+<section class="page-hero"><span class="eyebrow">CUSTOMER PORTAL</span><h1>HELLO, {{ current_user.name|upper }}</h1><p>View your payment activity and contact MV Mowers about your project.</p></section>
+<section class="section"><div class="section-heading"><h2>PAYMENT ACTIVITY</h2><a class="button button-red" href="{{ url_for('payments') }}">Make a payment</a></div>{% if orders %}<div class="table-wrap"><table><tr><th>Item</th><th>Amount</th><th>Status</th><th>Date</th></tr>{% for o in orders %}<tr><td>{{ o.item }}</td><td>${{ "%.2f"|format(o.amount_cents/100) }}</td><td>{{ o.status }}</td><td>{{ o.created_at }}</td></tr>{% endfor %}</table></div>{% else %}<p>No payments yet.</p>{% endif %}</section>
+{% endblock %}

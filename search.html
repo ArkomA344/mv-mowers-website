@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}Search | MV Mowers{% endblock %}{% block content %}
+<section class="page-hero"><span class="eyebrow">FIND WHAT YOU NEED</span><h1>SEARCH MV MOWERS</h1>
+<form class="search-form" action="{{ url_for('search') }}"><input name="q" value="{{ q }}" placeholder="Search services..." aria-label="Search services"><button class="button button-red">Search</button></form></section>
+<section class="section">{% if q %}<h2>Results for “{{ q }}”</h2>{% if matches %}<div class="service-grid">{% for s in matches %}<article class="service-card"><h3>{{ s[0] }}</h3><p>{{ s[1] }}</p><a href="{{ url_for('contact') }}">Contact us ↗</a></article>{% endfor %}</div>{% else %}<p>No matching services found. Try “tree”, “firewood”, or “engine”.</p>{% endif %}{% else %}<p>Enter a service or keyword above.</p>{% endif %}</section>
+{% endblock %}

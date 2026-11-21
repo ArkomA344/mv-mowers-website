@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block title %}Gallery | MV Mowers{% endblock %}{% block content %}
+<section class="page-hero"><span class="eyebrow">WORK & PROJECTS</span><h1>PHOTO GALLERY</h1><p>A look at MV Mowers projects. Photos will appear here as the gallery is updated.</p></section>
+<section class="section"><div class="gallery-grid">{% for p in photos %}<figure><img src="{{ url_for('static', filename='uploads/' + p.filename) }}" alt="{{ p.caption }}"><figcaption>{{ p.caption }}</figcaption></figure>{% else %}<div class="empty-gallery"><span>MV</span><p>Project photos coming soon.</p><small>Gallery images can be added from the admin dashboard.</small></div>{% endfor %}</div></section>
+{% endblock %}
